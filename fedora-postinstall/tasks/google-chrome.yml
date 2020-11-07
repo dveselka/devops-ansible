@@ -1,0 +1,10 @@
+---
+- name: install Fedora Workstation repositories
+  dnf:
+    name: fedora-workstation-repositories
+    state: present
+
+- name: install Google Chrome
+  dnf:
+    name: google-chrome-stable
+    state: present

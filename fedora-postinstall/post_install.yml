@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  become: yes
+  vars:
+    fedora_current: 30
+  tasks:
+    - include: tasks/rpmfusion.yml 
+    - include: tasks/google-chrome.yml 
