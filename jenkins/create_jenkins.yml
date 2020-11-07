@@ -1,0 +1,20 @@
+---
+- name: Install Jenkins on localhost
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+  vars_files:
+    - dev_vars.yml
+
+  roles:
+    - role: geerlingguy.java
+      become: yes
+      java_home: "{{ java_home }}"
+    - role:  geerlingguy.jenkins
+      become: yes
+      jenkins_http_port: 7081
+      jenkins_admin_username: admin
+      jenkins_admin_password: Adm123
+      jenkins_plugins_install_dependencies: false
+      jenkins_java_options: "-Xmx4096M"
+      jenkins_process_user: centos
