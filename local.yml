@@ -1,0 +1,6 @@
+---
+- name: create dir
+  hosts: localhost
+  
+  roles:
+    - create-dev-env

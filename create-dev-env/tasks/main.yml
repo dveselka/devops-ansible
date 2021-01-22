@@ -1,0 +1,19 @@
+- name: Create /app/dave  dir
+  become: true
+  file:
+    path: /app/dave
+    state: directory
+    owner: dave
+    group: dave
+    recurse: yes
+    mode: '0755'
+
+- name: Create /app/dave/  appl dirs
+  file:
+      path: "{{ item }}"
+      owner: dave
+      group: dave
+      recurse: yes
+  with_items:
+        - /app/dave/opt/jboss
+        - /app/dave/data/
